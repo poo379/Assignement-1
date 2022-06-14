@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 740px;
+            height: 400px;
+            background-color: rgb(225, 140, 235);
+            margin: 10px auto;
+            overflow: auto;
+        }
+        .container div{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(19, 19, 19);
+            margin: 10px;
+            color: white;
+            float: left;
+            font-size: 60px;
+            text-align: center;
+            line-height: 100px;
+        }
+        .container div:hover{
+           cursor: pointer;
+           background-color: rgb(114, 229, 235);
+           box-shadow: 0px 0px 10px;
+        }
+        .btnbox{
+            width: 660px;
+            margin: auto;
+            text-align: center;
+        }
+        button{
+          margin: 10px auto;
+          display: inline-block;
+          padding: 10px;
+          font-size: 20px;
+          width: 200px;
+        }
+    </style>
+    <script>
+        var count = 1;
+        function createBox(){
+           var box = document.createElement("div");
+           box.innerText = count;
+           box.onclick = function(){
+                box.style.backgroundColor = "orange";
+           };
+           document.getElementsByClassName("container")[0].appendChild(box);
+                count++;
+        }
+        window.onload = function(){
+            document.getElementsByTagName("button")[0].onclick = function(){
+              for(var i = 0; i< 100;i++){
+                  createBox();
+              }
+            }
+        }
+    </script>
+</head>
+<body>
+    <!--add event listners-->
+    <div class="btnbox">
+        <button>Add 100 Boxes</button>
+
+    </div>
+    <div class="container"></div>
+ 
+</body>
+</html>
